@@ -1,0 +1,42 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h3> All Users </h3>
+    <span flex></span>
+  </div>
+</md-toolbar>
+<md-card-content>
+  <md-list>
+    <md-item ng-repeat="item in users| filter:search">
+      <md-item-content>
+        <div class="md-tile-left inset" hide-sm>
+          <img src="imgs/person.gif" />
+        </div>
+        <div class="md-tile-content">
+          <h3>{{item.name}}</h3>
+          <h4>{{item.email}}</h4>
+          <h4>Will expire {{item.expire_at| fromNow}} </h4>
+          <p> Created 
+            {{item.created_at| fromNow}} ( {{item.created_at}} )
+          </p>
+          <div class="md-actions" layout="row"> 
+            <span flex></span>
+            <md-button class="md-fab md-mini md-primary" aria-label="Use Android" href="#/users/edit/{{item.user_id}}">
+              <ng-md-icon icon="edit"/></ng-md-icon>
+            </md-button>
+            &nbsp;&nbsp;
+            <md-button class="md-fab md-mini md-primary" aria-label="Use Android" style="background-color: rgb(222,54,65);" ng-click="delete($event, item.user_id)">
+              <ng-md-icon icon="delete" class="md-warn"></ng-md-icon>
+            </md-button>
+          </div>
+        </div>
+      </md-item-content>
+      <md-divider md-inset hide-sm ng-if="!$last"></md-divider>
+      <md-divider hide-gt-sm ng-if="!$last"></md-divider>
+    </md-item>
+    <md-item ng-show="users.length == 0">
+      <md-item-content>
+        <p>No users to be listed.</p>
+      </md-item-content>
+    </md-item>
+  </md-list>
+</md-card-content>
