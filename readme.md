@@ -1,3 +1,7 @@
+#MEAN-Material-Demo
+
+MEAN stack with material design demo is a sample or base project using mysql at backend, node as server side with express as framework, angular as frontend, and material as design.
+
 #Setup
 
 1- Unzip and place telenor-assignment folder in appropriate place at your disk.
